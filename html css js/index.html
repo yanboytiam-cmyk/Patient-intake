@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intake Form - Ability & Empowerment Health Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- 3D Pure CSS Medical Background (Guaranteed Offline/Local Execution) -->
+    <div class="bg-medical-3d">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-notes-medical"></i>
+                <div>
+                    <h1>Ability & Empowerment</h1>
+                    <p>Health Services</p>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p class="step-indicator">Step <span id="current-step">1</span> of <span id="total-steps">14</span></p>
+        </header>
+
+        <form id="intake-form" class="wizard-form" novalidate>
+
+            <!-- WAVE 1: Basic Identification -->
+            <section class="wave active" data-step="1">
+                <h2>👋🏻 <i class="fa-solid fa-user"></i> Let's Start &mdash; Who Are You?</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Please provide your basic
+                    identification details so we can create your patient file.</p>
+                <div class="form-group"><label>Full Legal Name</label><input type="text" name="PATIENT_FULL_NAME"
+                        required placeholder="e.g. John A. Smith"></div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Date of Birth</label><input type="date" name="PATIENT_DOB"
+                            required></div>
+                    <div class="form-group half"><label>Age</label><input type="number" name="PATIENT_AGE" min="0"
+                            max="150" required>
+                    </div>
+                </div>
+                <div class="form-group"><label>Social Security Number (SSN) <span
+                            style="color:var(--text-light); font-weight:normal; font-size:0.85rem;">(Optional)</span></label><input
+                        type="text" name="PATIENT_SSN" placeholder="XXX-XX-XXXX" pattern="\d{3}-\d{2}-\d{4}">
+                </div>
+                <div class="form-group"><label>Full Mailing Address <span
+                            style="color:var(--text-light); font-weight:normal; font-size:0.85rem;">(Street, City,
+                            State, ZIP)</span></label><textarea name="PATIENT_ADDRESS" rows="2" required
+                        placeholder="e.g. 123 Main St, Baltimore, MD 21201"></textarea></div>
+                <div class="actions"><button type="button" class="btn btn-primary next-btn">Next <i
+                            class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 2: Contact & Demographics -->
+            <section class="wave" data-step="2">
+                <h2>📱 <i class="fa-solid fa-address-book"></i> Contact & Profile</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> How can we reach you? We will only
+                    contact you using methods you approve.</p>
+                <div class="form-row">
+                    <div class="form-group half"><label>Home Phone</label><input type="tel" name="PATIENT_HOME_PHONE"
+                            placeholder="(410) 555-0123"></div>
+                    <div class="form-group half"><label>Can we leave a voicemail on this number?</label>
+                        <select name="VOICEMAIL_HOME">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Cell / Work Phone</label><input type="tel"
+                            name="PATIENT_CELL_PHONE" placeholder="(301) 555-0198"></div>
+                    <div class="form-group half"><label>Can we leave a voicemail on this number?</label>
+                        <select name="VOICEMAIL_CELL">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Email <span
+                                style="color:var(--text-light); font-weight:normal; font-size:0.85rem;">(Optional)</span></label>
+                        <input type="email" name="PATIENT_EMAIL" id="email-input"
+                            placeholder="e.g. john.smith@gmail.com">
+                    </div>
+                    <div class="form-group half"><label>Can we contact you by email?</label>
+                        <select name="VOICEMAIL_EMAIL">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Gender</label>
+                        <select class="has-other" data-name="PATIENT_GENDER" required>
+                            <option value="">Select...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="Please specify gender">
+                        </div>
+                    </div>
+                    <div class="form-group half"><label>Preferred Language</label>
+                        <select class="has-other" data-name="PATIENT_LANGUAGE" required>
+                            <option value="English" selected>English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Mandarin">Mandarin</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="Which language?">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Marital Status</label>
+                        <select name="PATIENT_MARITAL_STATUS">
+                            <option value="Never Married">Never Married / Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Domestic Partnership">Domestic Partnership</option>
+                        </select>
+                    </div>
+                    <div class="form-group half"><label>Patient Type</label>
+                        <select name="PATIENT_TYPE">
+                            <option value="Adult">Adult</option>
+                            <option value="Minor">Minor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Insurance Provider</label>
+                        <select class="has-other" data-name="INSURANCE_PROVIDER">
+                            <option value="">Select...</option>
+                            <option value="Medicaid">Medicaid</option>
+                            <option value="Medicare">Medicare</option>
+                            <option value="CareFirst BlueCross BlueShield">CareFirst BCBS</option>
+                            <option value="Aetna">Aetna</option>
+                            <option value="UnitedHealthcare">UnitedHealthcare</option>
+                            <option value="Cigna">Cigna</option>
+                            <option value="Humana">Humana</option>
+                            <option value="Kaiser Permanente">Kaiser Permanente</option>
+                            <option value="Amerigroup">Amerigroup</option>
+                            <option value="Molina Healthcare">Molina Healthcare</option>
+                            <option value="No Insurance">No Insurance</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Insurance name"></div>
+                    </div>
+                    <div class="form-group half"><label>Member ID / Policy Number</label><input type="text"
+                            name="INSURANCE_MEMBER_ID" placeholder="e.g. 123456789"></div>
+                </div>
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 3: Referral & Emergency -->
+            <section class="wave" data-step="3">
+                <h2>🛡️ <i class="fa-solid fa-people-roof"></i> Referral, Guardian &amp; Emergency Contact</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Tell us who referred you and who to
+                    contact in case of emergency.</p>
+                <div class="form-row">
+                    <div class="form-group half"><label>How did you hear about us?</label>
+                        <select class="has-other" data-name="REFERRED_BY">
+                            <option value="">Select...</option>
+                            <option value="Primary Care Physician">Primary Care Physician</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="Friend/Family">Friend / Family</option>
+                            <option value="Online Search">Online Search (Google...)</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Insurance Provider">Insurance Provider</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="Please specify">
+                        </div>
+                    </div>
+                    <div class="form-group half"><label>Date of Referral <span
+                                style="color:var(--text-light); font-weight:normal; font-size:0.85rem;">(If
+                                known)</span></label><input type="date" name="REFERRAL_DATE">
+                    </div>
+                </div>
+
+                <div id="guardian-info-section"
+                    style="display: none; background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="margin-top: 0; color: var(--primary); font-size: 1.1rem;"><i
+                            class="fa-solid fa-child-reaching"></i> Legal Guardian / Representative Information</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 15px;">Since the patient is a minor,
+                        this information is required.</p>
+
+                    <div class="form-group">
+                        <label>Parent / Legal Guardian Name</label>
+                        <input type="text" name="GUARDIAN_NAME" placeholder="e.g. Jane Smith">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <button type="button" class="btn-clear copy-contact-btn">
+                            <i class="fa-solid fa-copy"></i> Copy as Emergency Contact
+                        </button>
+                    </div>
+
+                    <label>Legal Guardian / Representative Signature</label>
+                    <div class="signature-container" style="border: 2px dashed #cbd5e1; background: white;">
+                        <canvas id="guardian-signature-pad" style="height: 150px;"></canvas>
+                        <button type="button" class="btn-clear" id="clear-guardian-signature"><i
+                                class="fa-solid fa-eraser"></i> Clear</button>
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="form-group"><label>Emergency Contact &mdash; Full Name</label><input type="text"
+                        name="EMERGENCY_CONTACT_NAME" required placeholder="e.g. James Williams"></div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Relationship to Patient</label>
+                        <select class="has-other" data-name="EMERGENCY_CONTACT_RELATION" required>
+                            <option value="">Select...</option>
+                            <option value="Parent">Parent (Mother/Father)</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Sibling">Brother / Sister</option>
+                            <option value="Child">Child</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Partner">Partner</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="Please specify the relationship">
+                        </div>
+                    </div>
+                    <div class="form-group half"><label>Emergency Contact Phone Number</label><input type="tel"
+                            name="EMERGENCY_CONTACT_PHONE" required placeholder="(410) 555-0145"></div>
+                </div>
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 4: Clinical - Health & Sleep -->
+            <section class="wave" data-step="4">
+                <h2>🩺 <i class="fa-solid fa-stethoscope"></i> Your Health &amp; Daily Habits</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> These questions help us understand
+                    your current physical health and daily routines.</p>
+                your current physical health and daily routines.</p>
+                <div class="form-group"><label>How would you rate your overall physical health?</label>
+                    <select name="PHYSICAL_HEALTH_RATING">
+                        <option value="">Select a rating...</option>
+                        <option value="Poor">Poor</option>
+                        <option value="Unsatisfactory">Unsatisfactory</option>
+                        <option value="Satisfactory">Satisfactory</option>
+                        <option value="Good">Good</option>
+                        <option value="Very Good">Very Good</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Please describe any physical health issues you have:</label><textarea
+                        name="PHYSICAL_HEALTH_NOTES" rows="2"
+                        placeholder="e.g. Chronic back pain, high blood pressure..."></textarea></div>
+
+                <div class="form-group"><label>How would you rate your sleep quality?</label>
+                    <select name="SLEEPING_HABITS_RATING">
+                        <option value="">Select a rating...</option>
+                        <option value="Poor">Poor</option>
+                        <option value="Unsatisfactory">Unsatisfactory</option>
+                        <option value="Satisfactory">Satisfactory</option>
+                        <option value="Good">Good</option>
+                        <option value="Very Good">Very Good</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>If you have sleep problems, please describe them:</label><textarea
+                        name="SLEEPING_HABITS_NOTES" rows="2"
+                        placeholder="e.g. Frequent insomnia, restless nights..."></textarea></div>
+
+                <div class="form-group"><label>Do you have any appetite or eating concerns?</label><textarea
+                        name="APPETITE_ISSUES" rows="2"
+                        placeholder="e.g. Recent loss of appetite, irregular meals..."></textarea></div>
+                <div class="form-group"><label>How often do you exercise?</label>
+                    <select class="has-other" data-name="EXERCISE_DETAILS">
+                        <option value="">Select...</option>
+                        <option value="None">None</option>
+                        <option value="1-2 times/week">1-2 times/week</option>
+                        <option value="3-4 times/week">3-4 times/week</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Other">Other (Specify type and frequency)</option>
+                    </select>
+                    <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                        <input type="text" placeholder="e.g. 3 times/week, Walking">
+                    </div>
+                </div>
+
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 5: Clinical - Therapists & Medications -->
+            <section class="wave" data-step="5">
+                <h2>💊 <i class="fa-solid fa-pills"></i> Treatment &amp; Medication History</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Have you received mental health care
+                    before? Tell us about any past or current treatments.</p>
+                <div class="form-row">
+                    <div class="form-group half"><label>Have you ever received mental health treatment
+                            before?</label><select name="PREV_MH_SERVICES_YN" class="conditional-trigger"
+                            data-target="#cond-prev-therapist">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-prev-therapist" style="display:none;"><label>Previous
+                            therapist(s)
+                            name(s)</label><input type="text" name="PREV_THERAPIST"
+                            placeholder="e.g. Dr. Smith, Psychologist"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Are you currently taking any medications (prescribed or
+                            over-the-counter)?</label><select name="CURRENT_MEDS_YN" class="conditional-trigger"
+                            data-target="#cond-curr-meds">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-curr-meds" style="display:none;"><label>List of
+                            medications</label><textarea name="CURRENT_MEDS_LIST" rows="2"
+                            placeholder="e.g. Ibuprofen 200mg, etc..."></textarea></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Have you ever taken psychiatric medications in the
+                            past?</label><select name="PSYCH_MEDS_HISTORY_YN" class="conditional-trigger"
+                            data-target="#cond-psych-meds">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-psych-meds" style="display:none;"><label>Previous psych
+                            medications</label><textarea name="PSYCH_MEDS_LIST" rows="2"
+                            placeholder="e.g. Antidepressants taken in 2021..."></textarea></div>
+                </div>
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 6: Clinical - Depression, Anxiety, Pain -->
+            <section class="wave" data-step="6">
+                <h2>🧬 <i class="fa-solid fa-heart-pulse"></i> Mental Health &amp; Lifestyle</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Help us understand how you are
+                    feeling right now &mdash; both mentally and emotionally.</p>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you currently experience depression?</label><select
+                            name="DEPRESSION_YN" class="conditional-trigger" data-target="#cond-depression">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-depression" style="display:none;"><label>Duration of
+                            depression</label>
+                        <select class="has-other" data-name="DEPRESSION_DURATION">
+                            <option value="">Select...</option>
+                            <option value="Less than 1 month">Less than 1 month</option>
+                            <option value="1-6 months">1-6 months</option>
+                            <option value="6-12 months">6-12 months</option>
+                            <option value="More than 1 year">More than 1 year</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="e.g. 6 months, 2 years...">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you currently experience anxiety?</label><select
+                            name="ANXIETY_YN" class="conditional-trigger" data-target="#cond-anxiety">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-anxiety" style="display:none;"><label>Onset of
+                            anxiety</label>
+                        <select class="has-other" data-name="ANXIETY_ONSET">
+                            <option value="">Select...</option>
+                            <option value="Recent">Recent (days/weeks)</option>
+                            <option value="Months ago">A few months ago</option>
+                            <option value="Years ago">Several years ago</option>
+                            <option value="Childhood">Since childhood</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="e.g. Last year...">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you experience chronic or ongoing pain?</label><select
+                            name="CHRONIC_PAIN_YN" class="conditional-trigger" data-target="#cond-chronic-pain">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-chronic-pain" style="display:none;"><label>Pain
+                            Description</label>
+                        <select class="has-other" data-name="CHRONIC_PAIN_DESC">
+                            <option value="">Select...</option>
+                            <option value="Migraines">Migraines / Headaches</option>
+                            <option value="Back pain">Back Pain</option>
+                            <option value="Joint pain">Joint Pain</option>
+                            <option value="Fibromyalgia">Fibromyalgia</option>
+                            <option value="Neuropathic pain">Neuropathic Pain</option>
+                            <option value="Abdominal pain">Abdominal Pain</option>
+                            <option value="Multiple areas">Multiple Areas</option>
+                            <option value="Other">Other (specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Describe your pain"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you currently use alcohol?</label><select name="ALCOHOL_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half"><label>How often do you use recreational or non-prescribed
+                            drugs?</label><select name="DRUG_USE_FREQUENCY">
+                            <option value="Never">Never / No use</option>
+                            <option value="Infrequently">Infrequently</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Daily">Daily</option>
+                        </select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Are you currently in a romantic relationship?</label><select
+                            name="RELATIONSHIP_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half"><label>Describe your relationship and rate its quality (1 = poor, 10 =
+                            excellent)</label><input type="text" name="RELATIONSHIP_DETAILS"
+                            placeholder="e.g. Married 5 years (Rating: 8/10)"></div>
+                </div>
+                <div class="form-group"><label>Have you experienced any major stressful events
+                        recently?</label><textarea name="LIFE_STRESSORS" rows="2"
+                        placeholder="e.g. Job loss, bereavement, separation..."></textarea></div>
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 7: Additional Info -->
+            <section class="wave" data-step="7">
+                <h2>🏠 <i class="fa-solid fa-house-user"></i> Employment, Lifestyle &amp; Goals</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Tell us about your daily life, work,
+                    beliefs, and what you would like to accomplish.</p>
+                beliefs, and what you'd like to accomplish.</p>
+                <div class="form-row">
+                    <div class="form-group half"><label>Are you currently employed?</label><select name="EMPLOYED_YN">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half"><label>What is your employment status?</label>
+                        <select class="has-other" data-name="EMPLOYMENT_DETAILS">
+                            <option value="">Select...</option>
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                            <option value="Unemployed">Unemployed</option>
+                            <option value="Student">Student</option>
+                            <option value="Retired">Retired</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="e.g. Cook, Full-time">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you practice any religion or spirituality?</label><select
+                            name="SPIRITUAL_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half"><label>Which religion or belief system?</label>
+                        <select class="has-other" data-name="SPIRITUAL_DETAILS">
+                            <option value="">Select...</option>
+                            <option value="Christianity">Christianity</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Judaism">Judaism</option>
+                            <option value="Hinduism">Hinduism</option>
+                            <option value="Buddhism">Buddhism</option>
+                            <option value="Atheist">Atheist / Agnostic</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="e.g. I attend church">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"><label>What do you consider your personal strengths?</label><textarea
+                        name="PERSONAL_STRENGTHS" rows="2"
+                        placeholder="e.g. Resilient, Creative, Empathetic..."></textarea></div>
+                <div class="form-group"><label>What areas would you like to improve?</label><textarea
+                        name="PERSONAL_WEAKNESSES" rows="2"
+                        placeholder="e.g. Anxious in public, Impatient..."></textarea></div>
+                <div class="form-group"><label>What do you hope to achieve through therapy?</label><textarea
+                        name="THERAPY_GOALS" rows="2" placeholder="e.g. Learn to manage my daily anxiety..."></textarea>
+                </div>
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 8: Family History -->
+            <section class="wave" data-step="8">
+                <h2><i class="fa-solid fa-people-roof"></i> Family Mental Health History</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Has anyone in your family been
+                    diagnosed with or experienced any of these conditions?</p>
+                <p class="subtitle">Has anyone in your family been diagnosed with or experienced any of the following
+                    conditions? This helps us understand your family health background.
+                </p>
+                <div class="grid-table">
+                    <div><b>Condition</b></div>
+                    <div><b>Yes/No</b></div>
+                    <div><b>Family Relation</b></div>
+
+                    <div>Alcohol/Substance Abuse</div>
+                    <div><select name="FH_ALCOHOL_SUBSTANCE_ABUSE_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_ALCOHOL_SUBSTANCE_ABUSE_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Anxiété</div>
+                    <div><select name="FH_ANXIETY_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_ANXIETY_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Dépression</div>
+                    <div><select name="FH_DEPRESSION_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_DEPRESSION_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Domestic Violence</div>
+                    <div><select name="FH_DOMESTIC_VIOLENCE_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_DOMESTIC_VIOLENCE_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Eating Disorders</div>
+                    <div><select name="FH_EATING_DISORDERS_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_EATING_DISORDERS_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Obesity</div>
+                    <div><select name="FH_OBESITY_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_OBESITY_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Obsessive-Compulsive Disorder (OCD)</div>
+                    <div><select name="FH_OBSESSIVE_COMPULSIVE_BEHAVIOR_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_OBSESSIVE_COMPULSIVE_BEHAVIOR_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Schizophrenia</div>
+                    <div><select name="FH_SCHIZOPHRENIA_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_SCHIZOPHRENIA_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+
+                    <div>Suicide Attempts</div>
+                    <div><select name="FH_SUICIDE_ATTEMPTS_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div><select class="has-other" data-name="FH_SUICIDE_ATTEMPTS_MEMBER">
+                            <option value="">—</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Grandparent">Grandparent</option>
+                            <option value="Uncle/Aunt">Uncle / Aunt</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the relation"></div>
+                    </div>
+                </div>
+
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 9: PRP Screening (Included but Staff might fill it - user wanted all) -->
+            <section class="wave" data-step="9">
+                <h2>📋 <i class="fa-solid fa-list-check"></i> Évaluation de Psychiatric Rehabilitation (PRP)</h2>
+                <div class="form-row">
+                    <div class="form-group half"><label>Mailing Address</label><input type="text" name="PATIENT_ADDRESS"
+                            required placeholder="e.g. 123 Main Street"></div>
+                    <div class="form-group half"><label>Apt / Suite (Optional)</label><input type="text"
+                            name="PATIENT_ADDRESS_2" placeholder="e.g. Apt 4B"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group third"><label>City</label><input type="text" name="PATIENT_CITY" required
+                            placeholder="e.g. Baltimore">
+                    </div>
+                    <div class="form-group third"><label>State</label><input type="text" name="PATIENT_STATE" required
+                            placeholder="e.g. Maryland"></div>
+                    <div class="form-group third"><label>ZIP Code</label><input type="text" name="PATIENT_ZIP" required
+                            placeholder="e.g. 21201"></div>
+                </div>
+                <div class="form-group"><label>In your own words, why are you seeking services today?</label><textarea
+                        name="REASON_FOR_REFERRAL"
+                        placeholder="Please briefly describe why you are seeking services today..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half"><label>Person attending this screening (Name)</label><input type="text"
+                            name="SCREENING_PARTICIPANT_1"></div>
+                    <div class="form-group half"><label>Their relationship to you</label>
+                        <select class="has-other" data-name="SCREENING_RELATION_1">
+                            <option value="">Select...</option>
+                            <option value="Patient">Patient (Self)</option>
+                            <option value="Parent">Parent (Mother/Father)</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Legal Guardian">Legal Guardian</option>
+                            <option value="Social Worker">Social Worker</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Additional person attending (Name)</label><input type="text"
+                            name="SCREENING_PARTICIPANT_2"></div>
+                    <div class="form-group half"><label>Their relationship to you</label>
+                        <select class="has-other" data-name="SCREENING_RELATION_2">
+                            <option value="">Select...</option>
+                            <option value="Patient">Patient (Self)</option>
+                            <option value="Parent">Parent (Mother/Father)</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Legal Guardian">Legal Guardian</option>
+                            <option value="Social Worker">Social Worker</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Third person attending (Name)</label><input type="text"
+                            name="SCREENING_PARTICIPANT_3"></div>
+                    <div class="form-group half"><label>Their relationship to you</label>
+                        <select class="has-other" data-name="SCREENING_RELATION_3">
+                            <option value="">Select...</option>
+                            <option value="Patient">Patient (Self)</option>
+                            <option value="Parent">Parent (Mother/Father)</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Legal Guardian">Legal Guardian</option>
+                            <option value="Social Worker">Social Worker</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half"><label>Q1. Has the need for rehabilitation services been determined
+                            based on the referral form, medical necessity documentation, and the mental health treatment
+                            plan?</label><select name="PRP_Q1">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half"><label>Explanation for Q1</label><input type="text"
+                            name="PRP_Q1_EXPLANATION"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Q2. Is the client ready and able to participate in PRP
+                            services?</label><select name="PRP_Q2">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half"><label>Explanation for Q2</label><input type="text"
+                            name="PRP_Q2_EXPLANATION"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Q3. Is the program able to meet the identified needs of the
+                            client?</label><select name="PRP_Q3">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half"><label>Explanation for Q3</label><input type="text"
+                            name="PRP_Q3_EXPLANATION"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Q3A. The applicant and their family have been informed of the
+                            reasons for the decision.</label><select name="PRP_Q3A">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half" style="display:none;"><label>Q3B. The applicant and their family have
+                            received referrals for alternative services.</label><select name="PRP_Q3B">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Q4. The client and their family have received referrals for
+                            alternative services.</label><select name="PRP_Q4">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half"><label>Explanation for Q4</label><input type="text"
+                            name="PRP_Q4_EXPLANATION"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half"><label>Planned Enrollment Date</label><input type="date"
+                            name="PRP_ENROLLMENT_DATE"></div>
+                    <div class="form-group half"><label>Screening Status</label><select name="PRP_SCREENING_STATUS">
+                            <option value="On Time">On Time</option>
+                            <option value="Delayed">Delayed</option>
+                        </select></div>
+                </div>
+                <div class="form-group"><label>Reason for Delay (if applicable)</label><input type="text"
+                        name="PRP_DELAY_REASON"></div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Screening Staff Name</label><input type="text"
+                            name="SCREENING_STAFF_NAME"></div>
+                    <div class="form-group half"><label>Staff Title</label>
+                        <select class="has-other" data-name="SCREENING_STAFF_TITLE">
+                            <option value="">Select...</option>
+                            <option value="Therapist">Therapist</option>
+                            <option value="Case Manager">Case Manager</option>
+                            <option value="Social Worker">Social Worker</option>
+                            <option value="Psychiatrist">Psychiatrist</option>
+                            <option value="Psychologist">Psychologist</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Program Director">Program Director</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify the title"></div>
+                    </div>
+                </div>
+
+
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 10: Housing (Situation) -->
+            <section class="wave" data-step="10">
+                <h2>🏠 <i class="fa-solid fa-house-chimney"></i> Housing Situation</h2>
+                <div class="form-row">
+                    <div class="form-group half"><label>Are you currently receiving services from another
+                            agency?</label><select name="HOUSING_OTHER_AGENCY_YN" class="conditional-trigger"
+                            data-target="#cond-hs-agency">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-agency" style="display:none;"><label>Agency
+                            Name</label><input type="text" name="HOUSING_AGENCY_NAME"
+                            placeholder="e.g. Habitat for Humanity">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you have a planned date to move out?</label><select
+                            name="HOUSING_LEAVE_DATE_YN" class="conditional-trigger" data-target="#cond-hs-leave-date">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-leave-date" style="display:none;"><label>Move-out
+                            Details</label><input type="text" name="HOUSING_LEAVE_DETAILS"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you want to continue living where you are now?</label><select
+                            name="HOUSING_WANT_STAY_YN" class="conditional-trigger" data-target="#cond-hs-stay"
+                            data-trigger-value="No">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-stay" style="display:none;"><label>Reason for wanting to
+                            stay</label><input type="text" name="HOUSING_STAY_REASON">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Are you looking for a new place to live?</label><select
+                            name="HOUSING_WANT_LEAVE_YN" class="conditional-trigger" data-target="#cond-hs-leave">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-leave" style="display:none;"><label>Reason for
+                            wanting to leave</label><input type="text" name="HOUSING_LEAVE_REASON"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you need any special housing accommodations (e.g. wheelchair
+                            access)?</label><select name="HOUSING_ACCOMMODATION_YN" class="conditional-trigger"
+                            data-target="#cond-hs-acc">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-acc" style="display:none;"><label>Accommodation
+                            Details</label><input type="text" name="HOUSING_ACCOMMODATION_DETAILS"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Is your current living arrangement temporary?</label><select
+                            name="HOUSING_TEMP_STAY_YN" class="conditional-trigger" data-target="#cond-hs-temp">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-temp" style="display:none;"><label>Length of Stay</label>
+                        <select class="has-other" data-name="HOUSING_TEMP_DURATION">
+                            <option value="">N/A</option>
+                            <option value="One day">One day</option>
+                            <option value="Several days">Several days</option>
+                            <option value="One week">One week</option>
+                            <option value="One month">One month</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="Specify the duration">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Are you receiving any housing assistance (Section 8, voucher,
+                            etc.)?</label><select name="HOUSING_ASSISTANCE_YN" class="conditional-trigger"
+                            data-target="#cond-hs-assist">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group half" id="cond-hs-assist" style="display:none;"><label>Type
+                            of assistance</label>
+                        <select class="has-other" data-name="HOUSING_ASSISTANCE_TYPE">
+                            <option value="">Select...</option>
+                            <option value="Section 8">Section 8</option>
+                            <option value="Public Housing">Public Housing</option>
+                            <option value="Rental Voucher">Rental Voucher</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display: none; margin-top: 10px;">
+                            <input type="text" placeholder="e.g. Section 8, voucher...">
+                        </div>
+                    </div>
+                </div>
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 11: Housing (Finances & Household) -->
+            <section class="wave" data-step="11">
+                <h2>💳 <i class="fa-solid fa-file-invoice-dollar"></i> Financial Situation &amp; Household</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> This section helps us identify any
+                    financial assistance you may qualify for.</p>
+                financial assistance you may qualify for.</p>
+                <div class="grid-table-3">
+                    <div class="form-group"><label>Do you owe any back rent?</label><select
+                            name="HOUSING_RENT_ARREARS_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group"><label>How much rent do you owe? ($)</label><input type="number"
+                            name="RENT_AMOUNT_OWED" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group"><label>What is your monthly rent? ($)</label><input type="number"
+                            name="MONTHLY_RENT" min="0" step="0.01" placeholder="0.00">
+                    </div>
+
+                    <div class="form-group"><label>Do you owe money on utility bills (electric, water,
+                            gas)?</label><select name="HOUSING_UTIL_ARREARS_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                    <div class="form-group"><label>Total amount owed on utilities ($)</label><input type="number"
+                            name="UTIL_AMOUNT_OWED" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group"><label>Heating ($/month)</label><input type="number"
+                            name="UTIL_HEAT_MONTHLY" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Electricity ($/month)</label><input type="number"
+                            name="UTIL_ELECTRICITY_MONTHLY" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Phone ($/month)</label><input type="number" name="UTIL_PHONE_MONTHLY"
+                            min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Other Monthly Bills ($/month)</label><input type="number"
+                            name="UTIL_OTHER_UTIL_MONTHLY" min="0" step="0.01" placeholder="0.00"></div>
+                </div>
+
+                <h3>Monthly Income</h3>
+                <div class="grid-table-4">
+                    <div class="form-group"><label>Wages ($)</label><input type="number" name="INCOME_WAGES" min="0"
+                            step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Unemployment ($)</label><input type="number"
+                            name="INCOME_UNEMPLOYMENT" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group"><label>Retirement/Pension ($)</label><input type="number"
+                            name="INCOME_PENSION" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Child Support ($)</label><input type="number"
+                            name="INCOME_CHILD_SUPPORT" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Social Security (SSI/SSDI) ($)</label><input type="number"
+                            name="INCOME_SSI_SSDI" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group"><label>Financial Aid (TCA) ($)</label><input type="number" name="INCOME_TCA"
+                            min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Veterans Benefits ($)</label><input type="number"
+                            name="INCOME_VETERANS_BENEFITS" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Disability Assistance (TDAP) ($)</label><input type="number"
+                            name="INCOME_TDAP" min="0" step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Alimony ($)</label><input type="number" name="INCOME_ALIMONY" min="0"
+                            step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Other ($)</label><input type="number" name="INCOME_OTHER" min="0"
+                            step="0.01" placeholder="0.00"></div>
+                    <div class="form-group"><label>Monthly Total ($)</label><input type="number" name="INCOME_TOTAL"
+                            min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group"><label>Do you have money saved for a security deposit?</label><select
+                            name="HOUSING_DEPOSIT_FUNDS_YN">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select></div>
+                </div>
+
+                <h3>Household Members</h3>
+                <div class="form-row">
+                    <div class="form-group third"><input type="text" name="HH_MEMBER_1_NAME"
+                            placeholder="Member 1 Name">
+                    </div>
+                    <div class="form-group third"><input type="number" name="HH_MEMBER_1_INCOME"
+                            placeholder="Income ($)">
+                    </div>
+                    <div class="form-group third">
+                        <select class="has-other" data-name="HH_MEMBER_1_RELATION">
+                            <option value="">Relation...</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Child">Child</option>
+                            <option value="Parent">Parent</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Roommate">Roommate</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group third"><input type="text" name="HH_MEMBER_2_NAME"
+                            placeholder="Member 2 Name">
+                    </div>
+                    <div class="form-group third"><input type="number" name="HH_MEMBER_2_INCOME"
+                            placeholder="Income ($)">
+                    </div>
+                    <div class="form-group third">
+                        <select class="has-other" data-name="HH_MEMBER_2_RELATION">
+                            <option value="">Relation...</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Child">Child</option>
+                            <option value="Parent">Parent</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Roommate">Roommate</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group third"><input type="text" name="HH_MEMBER_3_NAME"
+                            placeholder="Member 3 Name">
+                    </div>
+                    <div class="form-group third"><input type="number" name="HH_MEMBER_3_INCOME"
+                            placeholder="Income ($)">
+                    </div>
+                    <div class="form-group third">
+                        <select class="has-other" data-name="HH_MEMBER_3_RELATION">
+                            <option value="">Relation...</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Child">Child</option>
+                            <option value="Parent">Parent</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Roommate">Roommate</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group third"><input type="text" name="HH_MEMBER_4_NAME"
+                            placeholder="Member 4 Name">
+                    </div>
+                    <div class="form-group third"><input type="number" name="HH_MEMBER_4_INCOME"
+                            placeholder="Income ($)">
+                    </div>
+                    <div class="form-group third">
+                        <select class="has-other" data-name="HH_MEMBER_4_RELATION">
+                            <option value="">Relation...</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Child">Child</option>
+                            <option value="Parent">Parent</option>
+                            <option value="Brother/Sister">Brother / Sister</option>
+                            <option value="Roommate">Roommate</option>
+                            <option value="Other">Other (Specify)</option>
+                        </select>
+                        <div class="other-input-wrapper" style="display:none; margin-top:8px;"><input type="text"
+                                placeholder="Specify"></div>
+                    </div>
+                </div>
+
+
+                <!-- NOTE: Specific signatures for Housing staff are merged logically in base64 -->
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 12: Authorization for Information Exchange -->
+            <section class="wave" data-step="12">
+                <h2><i class="fa-solid fa-handshake"></i> Authorization for Exchange</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> If you would like us to share your
+                    records with another provider, fill out this section.</p>
+                <div class="form-group"><label>Which agency or provider should we share your information
+                        with?</label><input type="text" name="EXCHANGE_AGENCY_NAME"
+                        placeholder="e.g. Main Hospital, XY Clinic..."></div>
+                <div class="form-group"><label>That agency's address</label><input type="text"
+                        name="EXCHANGE_AGENCY_ADDRESS">
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>That agency's phone number</label><input type="tel"
+                            name="EXCHANGE_AGENCY_PHONE" placeholder="(301) 555-0111"></div>
+                    <div class="form-group half"><label>That agency's fax number</label><input type="tel"
+                            name="EXCHANGE_AGENCY_FAX" placeholder="(301) 555-0112">
+                    </div>
+                </div>
+
+                <p>Check all types of information you authorize us to exchange:</p>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="AUTH_NOTIF_TREATMENT" value="☑"> Admission
+                        Notification</label>
+                    <label><input type="checkbox" name="AUTH_TREATMENT_SUMMARY" value="☑"> Treatment Summary</label>
+                    <label><input type="checkbox" name="AUTH_PAST_TREATMENT" value="☑"> Treatment History</label>
+                    <label><input type="checkbox" name="AUTH_INTAKE_SUMMARY" value="☑"> Intake Summary</label>
+                    <label><input type="checkbox" name="AUTH_PSYCH_EVAL" value="☑"> Psychiatric Evaluation</label>
+                    <label><input type="checkbox" name="AUTH_FINANCIAL" value="☑"> Financial Information</label>
+                    <label><input type="checkbox" name="AUTH_DISCHARGE" value="☑"> Discharge Summary</label>
+                    <label><input type="checkbox" name="AUTH_PSYCH_DIAG" value="☑"> Psychiatric Diagnosis</label>
+                    <label><input type="checkbox" name="AUTH_MEDICATIONS" value="☑"> Medications</label>
+                    <label><input type="checkbox" name="AUTH_VERBAL" value="☑"> Verbal Communication Authorized</label>
+                    <label><input type="checkbox" name="AUTH_COORDINATION" value="☑"> Medical Coordination</label>
+                </div>
+                <div class="form-group" style="margin-top:10px;"><label>Other (Specify):</label><input type="text"
+                        name="AUTH_OTHER"></div>
+
+                <div class="form-row mt-large">
+                    <div class="form-group half"><label>Period Covered From:</label><input type="date"
+                            name="AUTH_PERIOD_FROM">
+                    </div>
+                    <div class="form-group half"><label>To:</label><input type="date" name="AUTH_PERIOD_TO"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Do you give full consent for this information
+                            exchange?</label><select name="AUTH_CONSENT_YN">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select></div>
+                    <div class="form-group half"><label>Relationship to Patient</label><select name="AUTH_RELATIONSHIP">
+                            <option value="Self">Self</option>
+                            <option value="Legal Guardian">Legal Guardian</option>
+                            <option value="Foster Parent">Foster Parent</option>
+                            <option value="Social Worker">Social Worker</option>
+                            <option value="Other">Other</option>
+                        </select></div>
+                </div>
+
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right"></i></button></div>
+            </section>
+
+            <!-- WAVE 13: Legal Notices & Agreements -->
+            <section class="wave legal-wave" data-step="13">
+                <h2>⚖️ <i class="fa-solid fa-scale-balanced"></i> Legal Agreements &amp; Consent</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Please read each section carefully.
+                    By continuing, you acknowledge these terms.</p>
+                <div class="legal-container"
+                    style="background: var(--surface); padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+
+                    <h3
+                        style="color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid var(--primary-light); padding-bottom: 5px;">
+                        <i class="fa-solid fa-file-contract"></i> Consent for Outpatient Mental Health Center (OMHC)
+                        &amp;
+                        Psychiatric Rehabilitation (PRP)
+                    </h3>
+                    <div class="legal-text"
+                        style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 30px;">
+                        <p>I voluntarily consent to participate in an OMHC and PRP evaluation. I understand that these
+                            services are designed to help me develop skills to manage my mental health and
+                            rehabilitation.</p>
+                        <p>The treating agency is responsible for my evaluation, diagnosis, and treatment
+                            plans. My rights as a patient have been explained to me. I authorize the
+                            assigned healthcare professionals to make appropriate clinical decisions.</p>
+                    </div>
+
+                    <h3
+                        style="color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid var(--primary-light); padding-bottom: 5px;">
+                        <i class="fa-solid fa-laptop-medical"></i> Telehealth Consent
+                    </h3>
+                    <div class="legal-text"
+                        style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 30px;">
+                        <p>I consent to receive my care via Telehealth. I understand that my consultations will take
+                            place
+                            via interactive audio or video platforms.</p>
+                        <p>I understand that I may revoke this consent at any time. Although telehealth offers
+                            many benefits, there are potential risks related to technological limitations or
+                            confidentiality breaches. The institution will make every effort to use
+                            secure systems (HIPAA-compliant).</p>
+                    </div>
+
+                    <h3
+                        style="color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid var(--primary-light); padding-bottom: 5px;">
+                        <i class="fa-solid fa-gavel"></i> Medical Confidentiality Agreement (HIPAA)
+                    </h3>
+                    <div class="legal-text" style="font-size: 0.95rem; line-height: 1.6; color: #444;">
+                        <p>I confirm that I have reviewed the Notice of Privacy Practices detailing
+                            how my health information (PHI) may be used and disclosed.</p>
+                        <p>I am aware of my right to refuse to sign this agreement. However, my refusal may
+                            limit the scope of certain treatments.</p>
+                        <div style="margin-top: 15px; background: rgba(0,0,0,0.02); padding: 15px; border-radius: 6px;">
+                            <button type="button" class="btn btn-secondary" id="btn-refuse-hipaa"
+                                style="width: 100%; border-color: var(--error-color); color: var(--error-color);">
+                                <i class="fa-solid fa-ban"></i> I refuse to sign and limit my treatment
+                            </button>
+                            <!-- Hidden checkbox that will be checked when the button is firmly clicked -->
+                            <input type="checkbox" name="FINAL_REFUSE_SIGN" id="hidden-refuse-checkbox" value="☑"
+                                style="display:none;">
+                            <div id="refuse-comments-wrapper" style="display:none; margin-top: 15px;">
+                                <input type="text" name="FINAL_REFUSE_COMMENTS"
+                                    placeholder="Please indicate the reason for your refusal..." style="width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="actions split"><button type="button" class="btn btn-secondary prev-btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button><button type="button"
+                        class="btn btn-primary next-btn">I Accept <i class="fa-solid fa-check"></i></button></div>
+            </section>
+
+            <!-- WAVE 14: Final Signature & Validation -->
+            <section class="wave signature-wave" data-step="14">
+                <h2>✍️ <i class="fa-solid fa-signature"></i> Final Signature</h2>
+                <p class="wave-description"><i class="fa-solid fa-circle-info"></i> Almost done! Sign below to complete
+                    your intake form.</p>
+                <p class="subtitle">By signing below, your signature will be applied to all required intake
+                    forms.</p>
+                <div class="signature-container">
+                    <canvas id="signature-pad"></canvas>
+                    <button type="button" class="btn-clear" id="clear-signature"><i class="fa-solid fa-eraser"></i>
+                        Clear</button>
+                </div>
+
+                <div class="form-row mt-large">
+                    <div class="form-group half"><label>Patient Print Name</label><input type="text"
+                            name="FINAL_PATIENT_PRINT_NAME" required></div>
+                    <div class="form-group half"><label>Preferred Name <span
+                                style="color:var(--text-light); font-weight:normal; font-size:0.85rem;">(What should we
+                                call you?)</span></label><input type="text" name="PATIENT_PREFERRED_NAME"
+                            placeholder="e.g. John Smith"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half"><label>Legal Name <span
+                                style="color:var(--text-light); font-weight:normal; font-size:0.85rem;">(Only if
+                                different from above)</span></label><input type="text" name="PATIENT_LEGAL_NAME"
+                            placeholder="e.g. John B. Smith"></div>
+                </div>
+
+                <div id="guardian-signature-section" style="display:none;">
+                    <div class="form-row mt-large">
+                        <div class="form-group half"><label>Guardian Name (if minor)</label><input type="text"
+                                name="FINAL_GUARDIAN_PRINT_NAME"></div>
+                        <div class="form-group half"><label>Legal Rep Name</label><input type="text"
+                                name="FINAL_LEGAL_REP_NAME"></div>
+                    </div>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 1px dashed var(--border-color);">
+
+                <!-- Witness -->
+                <h3>Witness</h3>
+                <div class="form-group"><label>Witness Name</label><input type="text" name="WITNESS_NAME"></div>
+                <p class="subtitle">Witness Signature</p>
+                <div class="signature-container">
+                    <canvas id="witness-signature-pad"></canvas>
+                    <button type="button" class="btn-clear" id="clear-witness-signature"><i
+                            class="fa-solid fa-eraser"></i>
+                        Clear</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 1px dashed var(--border-color);">
+
+                <!-- Staff -->
+                <h3>Staff</h3>
+                <div class="form-group"><label>Staff Member Name</label><input type="text" name="STAFF_NAME">
+                </div>
+                <p class="subtitle">Staff Member Signature</p>
+                <div class="signature-container">
+                    <canvas id="staff-signature-pad"></canvas>
+                    <button type="button" class="btn-clear" id="clear-staff-signature"><i
+                            class="fa-solid fa-eraser"></i>
+                        Clear</button>
+                </div>
+
+                <p class="disclaimer mt-large"><i class="fa-solid fa-shield-halved"></i> Attestation of the accuracy of
+                    the
+                    information provided.</p>
+
+                <div id="error-alert"
+                    style="display:none; color: white; background: var(--error-color); padding: 10px; border-radius: 8px; margin-bottom: 10px; text-align:center;">
+                    Server connection error. Check your n8n webhook!
+                </div>
+
+                <div class="actions split">
+                    <button type="button" class="btn btn-secondary prev-btn"><i class="fa-solid fa-arrow-left"></i>
+                        Back</button>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+                        <span class="btn-text">Submit &amp; Send</span>
+                        <div class="loader" id="submit-loader" style="display: none;"></div>
+                    </button>
+                </div>
+            </section>
+
+        </form>
+
+        <div id="success-screen" class="success-screen hidden">
+            <div class="success-glow"></div>
+            <div class="success-icon-wrapper">
+                <div class="success-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <!-- Animated ring -->
+                <svg class="success-ring" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                </svg>
+            </div>
+            <h2>Form Submitted Successfully!</h2>
+            <div class="success-details">
+                <p>Your information has been securely received by the clinic.</p>
+                <div id="countdown-container"
+                    style="background: var(--surface); padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; border: 1px solid var(--border-color);">
+                    <p style="margin-bottom: 10px; font-weight: 500; font-size: 1.1rem;"><i
+                            class="fa-solid fa-hourglass-half fa-spin"></i> Generating your final document...</p>
+                    <div id="countdown-timer"
+                        style="font-size: 2.5rem; font-weight: 700; color: var(--primary); font-family: monospace;">
+                        01:30</div>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Please wait, the download
+                        link will appear here.</p>
+                </div>
+                <div id="document-ready-message"
+                    style="display: none; background: #e8f5e9; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; border: 1px solid #c8e6c9;">
+                    <p style="color: #2e7d32; font-weight: 600; font-size: 1.1rem; margin: 0;"><i
+                            class="fa-solid fa-check-circle"></i> Your document is ready!</p>
+                </div>
+                <!-- Dynamic Download Links Container -->
+                <div id="download-links-container" class="download-links-grid" style="display: none; margin-top: 20px;">
+                </div>
+            </div>
+            <div class="success-actions">
+                <button type="button" class="btn btn-secondary" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Print This Page
+                </button>
+                <button type="button" class="btn btn-primary" onclick="window.location.reload()">
+                    <i class="fa-solid fa-file-medical"></i> New Form
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
